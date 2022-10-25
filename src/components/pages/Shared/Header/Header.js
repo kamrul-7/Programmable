@@ -5,7 +5,13 @@ import { FaUser } from 'react-icons/fa';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
     return (
         <div className="navbar shadow-lg bg-sky-200">
             <div className="navbar-start">
@@ -19,6 +25,18 @@ const Header = () => {
                         <li><a className='font-bold'><Link to='/faq'>FAQ</Link></a></li>
                         <li><a className='font-bold'><Link to='/login'>Login</Link></a></li>
                         <li><a className='font-bold'><Link to='/register'>Sign up</Link></a></li>
+                        {
+                            user?.uid ?
+                                <>
+                                    <span>{user?.displayName}</span>
+                                    <button onClick={handleLogOut} className="btn btn-xs mr-2 ml-3">Log Out</button>
+                                </>
+                                :
+                                <>
+                                    <Link to='/login'>Login</Link>
+                                    <Link to='/register'>Register</Link>
+                                </>
+                        }
                     </ul>
                 </div>
                 <a className="btn btn-ghost normal-case text-xl md:text-2xl lg:text-3xl text-sky-700 font-bold lg:font-extrabold"><Link to='/'>Programmable</Link></a>
@@ -29,14 +47,29 @@ const Header = () => {
                     <li><a className='font-bold'><Link to='/course'>Courses</Link></a></li>
                     <li><a className='font-bold'><Link to='/blog'>Blog</Link></a></li>
                     <li><a className='font-bold'><Link to='/faq'>FAQ</Link></a></li>
-                    <li><a className='font-bold'><Link to='/login'>Login</Link></a></li>
-                    <li><a className='font-bold'><Link to='/register'>Sign up</Link></a></li>
-                    <li><a className='font-bold'>{user?.displayName}</a></li>
-                    <Link to="/profile" className='mt-3'>
+                    <>
+                        {
+                            user?.uid ?
+                                <>
+                                    <div className='d-flex justify-around'>
+                                        <span>{user?.displayName}</span>
+                                        <button onClick={handleLogOut} className="btn btn-xs mr-2 ml-4 mt-3">Log Out</button>
+                                    </div>
+                                </>
+                                :
+                                <>
+                                    <Link to='/login' className='mr-3 ml-3 mt-2'>Login</Link>
+                                    <Link to='/register' className='mr-3 ml-3 mt-2'>Register</Link>
+                                </>
+                        }
+
+
+                    </>
+                    <Link to="/profile">
                         {user?.photoURL ?
-                            <img style={{ height: '30px' }}
-                                src={user?.photoURL} alt="Shoes" className="rounded-3xl" />
-                            : <FaUser></FaUser>
+                            <img style={{ height: '30px' }} src={user?.photoURL} alt="" className="rounded-xl mt-3 mr-4 ml-3" />
+
+                            : <FaUser className='mt-3 mr-4 ml-3'></FaUser>
                         }
                     </Link>
                 </ul>
