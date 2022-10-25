@@ -1,6 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { FaUser } from 'react-icons/fa';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const Header = () => {
@@ -31,6 +32,13 @@ const Header = () => {
                     <li><a className='font-bold'><Link to='/login'>Login</Link></a></li>
                     <li><a className='font-bold'><Link to='/register'>Sign up</Link></a></li>
                     <li><a className='font-bold'>{user?.displayName}</a></li>
+                    <Link to="/profile" className='mt-3'>
+                        {user?.photoURL ?
+                            <img style={{ height: '30px' }}
+                                src={user?.photoURL} alt="Shoes" className="rounded-3xl" />
+                            : <FaUser></FaUser>
+                        }
+                    </Link>
                 </ul>
             </div>
 
