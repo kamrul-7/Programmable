@@ -13,10 +13,11 @@ const LeftSideNavBar = () => {
 
     return (
         <div>
-            <h1>All Categories {categories.length}</h1>
-            <div className='text-start ml-12'>
+            <div className='text-start ml-12 shadow-lg p-8'>
+                <h1 className='ml-8 font-bold text-lg'>All Categories {categories.length}</h1>
+
                 {
-                    categories.map(category => <p key={category.id}>
+                    categories.map(category => <p key={category.id} className='mt-4 text-white hover:text-orange-700 gap-4 bg-emerald-400 p-3 rounded-lg' >
                         <Link to={`/category/${category.id}`}>{category.name}</Link>
                     </p>)
                 }

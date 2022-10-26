@@ -6,13 +6,12 @@ import LeftSideNavBar from '../pages/Shared/LeftSideNavBar';
 const Main = () => {
     return (
         <div><Header></Header>
-            <div className='grid grid-cols-6 gap-4'>
-                <div>
+            <div className='grid grid-cols-4 gap-4'>
+                <div className='text-start'>
                     <LeftSideNavBar></LeftSideNavBar>
                 </div>
-                <div className='col-span-5'>
+                <div className='col-span-3'>
                     <Outlet></Outlet>
-
                 </div>
             </div>
             <Footer></Footer>
