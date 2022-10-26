@@ -3,7 +3,6 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import { AuthContext } from '../../../context/AuthProvider';
-
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
     const handleLogOut = () => {
@@ -13,7 +12,7 @@ const Header = () => {
     }
 
     return (
-        <div className="navbar shadow-lg bg-sky-200">
+        <div className="navbar shadow-lg bg-sky-200 sticky top-0">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -23,6 +22,7 @@ const Header = () => {
                         <li><a className='font-bold'><Link to='/course'>Courses</Link></a></li>
                         <li><a className='font-bold'><Link to='/blog'>Blog</Link></a></li>
                         <li><a className='font-bold'><Link to='/faq'>FAQ</Link></a></li>
+                        <li><a className='font-bold'><Link to='/dark'>Dark Mode</Link></a></li>
                         <li><a className='font-bold'><Link to='/login'>Login</Link></a></li>
                         <li><a className='font-bold'><Link to='/register'>Sign up</Link></a></li>
                         {
@@ -44,7 +44,7 @@ const Header = () => {
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
-                    <li><a className='font-bold'><Link to='/course'>Courses</Link></a></li>
+                    <li><a className='font-bold'><Link to='/home'>Courses</Link></a></li>
                     <li><a className='font-bold'><Link to='/blog'>Blog</Link></a></li>
                     <li><a className='font-bold'><Link to='/faq'>FAQ</Link></a></li>
                     <>
