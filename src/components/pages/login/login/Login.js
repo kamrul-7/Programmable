@@ -30,14 +30,11 @@ const Login = () => {
                 console.log(user);
                 form.reset();
                 setError('');
-                navigate('/')
-                if (user.emailVerified) {
-                    navigate(from, { replace: true });
-                }
-                else {
-                    toast.error('Your email is not verified. Please verify your email address.')
-                }
+
+
+                navigate(from, { replace: true });
             })
+
             .catch(error => {
                 console.error(error)
                 setError(error.message);
@@ -54,6 +51,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => console.error(error));
     }

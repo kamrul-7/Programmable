@@ -1,7 +1,5 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import HomePage from '../pages/HomePage';
-import DarkMode from '../pages/Others/DarkMode';
 import Footer from '../pages/Shared/Footer/Footer';
 import Header from '../pages/Shared/Header/Header';
 import LeftSideNavBar from '../pages/Shared/LeftSideNavBar';

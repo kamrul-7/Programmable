@@ -32,7 +32,26 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+#light {
+  background-color: #f3ebf6;
+}
+
+#dark {
+  background-color: #2e2e2e;
+  color: #61dafb;
+}
+
+#light .main {
+  background-color: #fff;
+}
+
+#dark .main {
+  background-color: #292829;
+  color: #61dafb;
 }

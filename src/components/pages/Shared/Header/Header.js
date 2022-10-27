@@ -2,8 +2,11 @@ import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
+import ReactSwitch from "react-switch";
 import { AuthContext } from '../../../context/AuthProvider';
+import { ThemeContext } from '../../../../App';
 const Header = () => {
+    const { theme, toggleTheme } = useContext(ThemeContext);
     const { user, logOut } = useContext(AuthContext);
     const handleLogOut = () => {
         logOut()
@@ -22,7 +25,11 @@ const Header = () => {
                         <li><a className='font-bold'><Link to='/course'>Courses</Link></a></li>
                         <li><a className='font-bold'><Link to='/blog'>Blog</Link></a></li>
                         <li><a className='font-bold'><Link to='/faq'>FAQ</Link></a></li>
-                        <li><a className='font-bold'><Link to='/dark'>Dark Mode</Link></a></li>
+                        <ReactSwitch
+                            className="me-4 ms-4"
+                            onChange={toggleTheme}
+                            checked={theme === "dark"}
+                        />
                         <li><a className='font-bold'><Link to='/login'>Login</Link></a></li>
                         <li><a className='font-bold'><Link to='/register'>Sign up</Link></a></li>
                         {
@@ -37,6 +44,13 @@ const Header = () => {
                                     <Link to='/register'>Register</Link>
                                 </>
                         }
+
+                        {user?.photoURL ?
+                            <img style={{ height: '30px' }} src={user?.photoURL} alt="" className="rounded-xl mt-3 mr-4 ml-3" />
+
+                            : <FaUser className='mt-3 mr-8 ml-3'></FaUser>
+                        }
+
                     </ul>
                 </div>
                 <a className="btn btn-ghost normal-case text-xl md:text-2xl lg:text-3xl text-sky-700 font-bold lg:font-extrabold"><Link to='/'>Programmable</Link></a>
@@ -47,6 +61,11 @@ const Header = () => {
                     <li><a className='font-bold'><Link to='/home'>Courses</Link></a></li>
                     <li><a className='font-bold'><Link to='/blog'>Blog</Link></a></li>
                     <li><a className='font-bold'><Link to='/faq'>FAQ</Link></a></li>
+                    <ReactSwitch
+                        className="me-4 ms-4"
+                        onChange={toggleTheme}
+                        checked={theme === "dark"}
+                    />
                     <>
                         {
                             user?.uid ?
@@ -61,17 +80,19 @@ const Header = () => {
                                     <Link to='/login' className='mr-3 ml-3 mt-2'>Login</Link>
                                     <Link to='/register' className='mr-3 ml-3 mt-2'>Register</Link>
                                 </>
+
                         }
 
 
                     </>
-                    <Link to="/profile">
-                        {user?.photoURL ?
-                            <img style={{ height: '30px' }} src={user?.photoURL} alt="" className="rounded-xl mt-3 mr-4 ml-3" />
 
-                            : <FaUser className='mt-3 mr-4 ml-3'></FaUser>
-                        }
-                    </Link>
+                    {user?.photoURL ?
+                        <img style={{ height: '30px' }} src={user?.photoURL} alt="" className="rounded-xl mt-3 mr-4 ml-3" />
+
+                        :
+                        <FaUser className='mt-3 mr-8 ml-3'></FaUser>
+                    }
+
                 </ul>
             </div>
 
