@@ -5,11 +5,13 @@ import { FaUser } from 'react-icons/fa';
 import ReactSwitch from "react-switch";
 import { AuthContext } from '../../../context/AuthProvider';
 import { ThemeContext } from '../../../../App';
+import { toast } from 'react-toastify';
 const Header = () => {
     const { theme, toggleTheme } = useContext(ThemeContext);
     const { user, logOut } = useContext(AuthContext);
     const handleLogOut = () => {
         logOut()
+        toast.success('LogOut Successful')
             .then(() => { })
             .catch(error => console.error(error))
     }

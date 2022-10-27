@@ -1,10 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaStar, FaEye } from "react-icons/fa";
+import { toast } from 'react-toastify';
 
 const CourseSummeryCart = ({ course }) => {
+    const handelToast = () => {
+        toast.success('Check Layout page!', { autoClose: 500 })
+    }
 
-    const { id, title, details, total_view, rating, image_url } = course;
+    const { id, title, details, total_view, rating, image_url, price } = course;
+
     return (
         <div className="card card-compact bg-base-100 shadow-xl bg-#f5dfdf-200">
             <figure><img className='m-2' src={image_url} alt="" /></figure>
@@ -18,6 +23,7 @@ const CourseSummeryCart = ({ course }) => {
                     </div>
                 </div>
                 <h2 className="card-title">{title}</h2>
+                <p className='text-2xl text-blue-500'>$ {price}</p>
                 {
                     details.length > 250 ?
                         <>{details.slice(0, 250) + '...'}  </>
@@ -25,7 +31,7 @@ const CourseSummeryCart = ({ course }) => {
                         details
                 }
                 <div className="">
-                    <Link to={`/course/${id}`}> <button className="btn btn-block">Get Premium</button></Link>
+                    <Link to={`/course/${id}`}> <button onClick={handelToast} className="btn btn-block">Get Premium</button></Link>
                     <button className="btn btn-block mt-4">Download Pdf</button>
                 </div>
             </div>

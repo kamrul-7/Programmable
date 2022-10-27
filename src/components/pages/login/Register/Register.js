@@ -7,7 +7,6 @@ import "../login/Login.css";
 
 const Register = () => {
     const [error, setError] = useState('');
-    const [accepted, setAccepted] = useState(false);
     const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
 
     const handleSubmit = event => {
@@ -27,11 +26,11 @@ const Register = () => {
                 form.reset();
                 handleUpdateUserProfile(name, photoURL);
                 handleEmailVerification();
-                toast.success('Please verify your email address.')
+                toast.warn('Please verify your email address.')
             })
             .catch(e => {
                 console.error(e);
-                setError(e.message);
+                toast.error('Email Already used');
             });
     }
 
@@ -51,11 +50,6 @@ const Register = () => {
             .then(() => { })
             .catch(error => console.error(error));
     }
-
-    const handleAccepted = event => {
-        setAccepted(event.target.checked)
-    }
-
     return (
         <div className="login-container">
             <div className="login-title">Sign up <SiGnuprivacyguard /></div>

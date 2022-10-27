@@ -1,10 +1,22 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { FaStar, FaEye } from "react-icons/fa";
+import { jsPDF } from "jspdf";
 const Course = () => {
     const courses = useLoaderData();
-    const { id, title, details, total_view, rating, image_url } = courses;
+    const { id, title, details, total_view, rating, image_url, price } = courses;
     console.log(courses)
+    const genereatePdf = () => {
+        const doc = new jsPDF('landscape', 'px', 'a4', 'false')
+        doc.addImage(image_url, 'jpeg', 65, 20, 500, 400);
+        doc.addPage()
+        doc.addFont('Helvertica', 'bold');
+        doc.text(60, 60, title)
+        doc.text(60, 80, `price`)
+        doc.text(60, 100, details)
+        doc.save('a.pdf')
+    }
+
     return (
         <div className="card card-compact bg-base-100 shadow-xl bg-#f5dfdf-200">
             <figure><img className='m-2' src={image_url} alt="" /></figure>
@@ -18,10 +30,10 @@ const Course = () => {
                     </div>
                 </div>
                 <h2 className="card-title">{title}</h2>
-
+                <p>{details}</p>
                 <div className="">
-                    <Link to={`/course/${id}`} ><button className="btn btn-block"> Get Premium</button></Link>
-                    <button className="btn btn-block mt-4">Download Pdf</button>
+                    <Link to={'/'} ><button className="btn btn-block"> Go To Home</button></Link>
+                    <button onClick={genereatePdf} className="btn btn-block mt-4">Download Pdf</button>
                 </div>
             </div >
         </div >

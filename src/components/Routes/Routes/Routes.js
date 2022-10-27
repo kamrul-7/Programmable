@@ -8,12 +8,14 @@ import Home from "../../pages/Home/Home";
 import HomePage from "../../pages/HomePage";
 import Login from "../../pages/login/login/Login";
 import Register from "../../pages/login/Register/Register";
+import Error from "../../pages/Others/Error";
 import PrivateRoute from "../PrivateRoutes/PrivateRoutes";
 
 export const routes = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <Error></Error>,
         children: [
             {
                 path: '/home',
@@ -42,6 +44,7 @@ export const routes = createBrowserRouter([
                 path: "/faq",
                 element: <Faq></Faq>
             },
+
 
             {
                 path: "/category/:id",
