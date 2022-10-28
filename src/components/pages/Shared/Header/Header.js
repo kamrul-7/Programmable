@@ -44,8 +44,8 @@ const Header = () => {
                                 </>
                                 :
                                 <>
-                                    <Link to='/login'>Login</Link>
-                                    <Link to='/register'>Register</Link>
+                                    <Link className='ml-4' to='/login'>Login</Link>
+                                    <Link className='ml-4' to='/register'>Register</Link>
                                 </>
                         }
 
@@ -60,10 +60,10 @@ const Header = () => {
 
                             />
 
-                            : <FaUser className='mt-3 mr-8 ml-3'></FaUser>
+                            : <FaUser className='mt-3  ml-6'></FaUser>
                         }
                         <Switch
-                            className="me-4 ms-4"
+                            className="ml-4 mt-3"
                             onChange={toggleTheme}
                             checked={theme === "dark"}
                             defaultChecked size="small" />
