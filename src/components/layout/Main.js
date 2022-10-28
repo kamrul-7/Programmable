@@ -7,17 +7,17 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <div className='grid grid-cols-4 lg:grid-cols-4'>
-                <div className='text-start col-span-2 lg:col-span-1'>
+            <div className='grid grid-cols-4'>
+                <div className='text-start col-span-1'>
                     <LeftSideNavBar></LeftSideNavBar>
                 </div>
-                <div className='col-span-2 lg:col-span-3'>
+                <div className='col-span-3'>
 
                     <Outlet></Outlet>
                 </div>
             </div>
             <Footer></Footer>
-        </div>
+        </div >
     );
 };
 

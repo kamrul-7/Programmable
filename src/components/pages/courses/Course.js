@@ -18,7 +18,7 @@ const Course = () => {
     }
 
     return (
-        <div className="card card-compact bg-base-100 shadow-xl bg-#f5dfdf-200">
+        <div className="card card-compact m-12 lg:mx-32 bg-base-100 shadow-xl bg-#f5dfdf-200">
             <figure><img className='m-2' src={image_url} alt="" /></figure>
             <div className="card-body text-start">
                 <div className='flex'>

@@ -1,8 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 const HomePage = () => {
     return (
-        <div class="mt-32 p-96 no-repeat bg-[url('https://media.istockphoto.com/photos/developing-programming-and-coding-technologies-with-website-design-in-picture-id1364358321?b=1&k=20&m=1364358321&s=170667a&w=0&h=PpEXtpe9YpTdAORO2BgW1cKe6I2ZrNr9Sx_lcsPX_XI=')]">
-            <h2>Welcome to This Course</h2>
+        <div>
+            <div>
+                <h1 className='text-3xl lg:text-5xl font-bold lg:font-extrabold mt-12 lg:mt-32 ml-8 lg:ml-16 text-sky-600'>Learn without <br />
+                    limits</h1>
+                <p className='ml-8 mt-4 lg:text-xl font-medium lg:mt-12 lg:ml-16'>Start, switch, or advance your career with more than 5,200 <br /> courses, Professional Certificates, and degrees from world-class <br /> universities and companies.</p>
+                <Link to="/register"><button className="btn btn-success text-white text-2xl ml-8 mt-4 lg:ml-16 lg:mt-12 lg:px-12 hover:btn-info">Join Us</button></Link>
+            </div>
         </div>
     );
 };

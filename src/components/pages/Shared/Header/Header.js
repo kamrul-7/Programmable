@@ -17,14 +17,14 @@ const Header = () => {
     }
 
     return (
-        <div className="navbar shadow-lg bg-sky-200 sticky top-0">
+        <div className="navbar shadow-lg bg-sky-200 sticky top-0 z-30">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-32">
-                        <li><a className='font-bold'><Link to='/course'>Courses</Link></a></li>
+                        <li><a className='font-bold'><Link to='/home'>Courses</Link></a></li>
                         <li><a className='font-bold'><Link to='/blog'>Blog</Link></a></li>
                         <li><a className='font-bold'><Link to='/faq'>FAQ</Link></a></li>
                         <li><a className='font-bold'><Link to='/login'>Login</Link></a></li>
@@ -77,11 +77,7 @@ const Header = () => {
                                     <Link to='/login' className='mr-3 ml-3 mt-2'>Login</Link>
                                     <Link to='/register' className='mr-3 ml-3 mt-2'>Register</Link>
                                 </>
-
-
                         }
-
-
                     </>
                     <Switch
                         className="me-4 mt-2 font-thin ms-4"

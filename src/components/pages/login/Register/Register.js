@@ -51,14 +51,14 @@ const Register = () => {
             .catch(error => console.error(error));
     }
     return (
-        <div className="login-container">
+        <div className="login-container m-12 lg:mx-64 shadow-2xl bg-pink-100">
             <div className="login-title">Sign up <SiGnuprivacyguard /></div>
             <form onSubmit={handleSubmit} className="login-form">
                 <input name='name' type="text" placeholder="Your name" />
                 <input name='photoURL' type="text" placeholder="Photo URLs" />
                 <input name='email' type="email" placeholder="Your Email" />
                 <input name='password' placeholder="password" />
-                <button>Sign up</button>
+                <button className="shadow-xl mb-4">Sign up</button>
                 <p>
                     Already have an account? <Link to="/login" className="text-blue-700">Login</Link>
                 </p>

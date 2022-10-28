@@ -74,7 +74,7 @@ const Login = () => {
             .catch(error => console.error(error));
     }
     return (
-        <div className="login-container">
+        <div className="login-container m-12 lg:mx-64 shadow-2xl bg-pink-100">
             <div className="login-title">
                 Login
                 <BiLogInCircle />
@@ -94,10 +94,12 @@ const Login = () => {
                 </p>
             </form>
 
-            <button onClick={handleGoogleSignIn}>Google</button>
-            <button onClick={handleGithubSignIn}>Github</button>
 
+            <button className="shadow-xl" onClick={handleGoogleSignIn}>Google</button>
+            <button className="shadow-xl" onClick={handleGithubSignIn}>Github</button>
         </div>
+
+
     );
 };
 

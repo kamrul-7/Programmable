@@ -1,15 +1,10 @@
 .login-container {
     position: relative;
-    width: 350px;
-    margin: 4rem auto;
-    height: 500px;
     border-radius: 20px;
     padding: 40px;
     box-sizing: border-box;
-    background: #ecf0f3;
-    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
-}
 
+}
 
 .login-title {
     display: flex;
@@ -68,7 +63,6 @@
     border-radius: 20px;
     cursor: pointer;
     font-weight: 900;
-    box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
     transition: 0.5s;
 }
 

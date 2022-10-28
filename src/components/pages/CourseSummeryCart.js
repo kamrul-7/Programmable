@@ -11,14 +11,14 @@ const CourseSummeryCart = ({ course }) => {
     const { id, title, details, total_view, rating, image_url, price } = course;
 
     return (
-        <div className="card card-compact bg-base-100 shadow-xl bg-#f5dfdf-200">
+        <div className="card card-compact bg-base-100 shadow-xl m-8 bg-#f5dfdf-200">
             <figure><img className='m-2' src={image_url} alt="" /></figure>
             <div className="card-body text-start">
                 <div className='flex'>
 
                     <FaStar className='text-yellow-400 mr-3 lg:mr-6 mt-1' />
                     <p>{rating.number}</p>
-                    <div className='ml-56 flex '> <FaEye className='mt-1 mr-4' />
+                    <div className='lg:ml-56 flex '> <FaEye className='mt-1 mr-4' />
                         <p >{total_view}</p>
                     </div>
                 </div>

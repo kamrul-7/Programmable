@@ -8,7 +8,7 @@ const Category = () => {
 
     return (
         <div>
-            <h2 className='font-bold lg:text-2xl mt-3'>This Category has {categoryCourse.length} Courses</h2>
+            <h2 className='font-bold lg:text-2xl mt-3 text-center'>This Category has {categoryCourse.length} Courses</h2>
             <div className='grid lg:grid-cols-2 gap-6 lg:gap-12 m-5 lg:m-10'>
                 {
                     categoryCourse.map(course =>
