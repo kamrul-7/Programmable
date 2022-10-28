@@ -3,14 +3,15 @@ import { useContext } from "react";
 import { BiLogInCircle } from "react-icons/bi";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 
 import './Login.css'
 import { toast } from "react-toastify";
 const Login = () => {
 
     const { providerLogin } = useContext(AuthContext);
-    const googleProvider = new GoogleAuthProvider
+    const googleProvider = new GoogleAuthProvider()
+    const githubProvider = new GithubAuthProvider();
     const [error, setError] = useState('');
     const { signIn, setLoading } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -49,10 +50,21 @@ const Login = () => {
             })
     }
 
-
-
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                toast.success('Login Successful')
+                navigate(from, { replace: true });
+            })
+            .catch(error => console.error(error));
+
+
+    }
+
+    const handleGithubSignIn = () => {
+        providerLogin(githubProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -83,6 +95,7 @@ const Login = () => {
             </form>
 
             <button onClick={handleGoogleSignIn}>Google</button>
+            <button onClick={handleGithubSignIn}>Github</button>
 
         </div>
     );

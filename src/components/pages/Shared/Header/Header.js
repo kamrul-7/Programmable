@@ -2,7 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
-import ReactSwitch from "react-switch";
+import Switch from "react-switch";
 import { AuthContext } from '../../../context/AuthProvider';
 import { ThemeContext } from '../../../../App';
 import { toast } from 'react-toastify';
@@ -27,11 +27,6 @@ const Header = () => {
                         <li><a className='font-bold'><Link to='/course'>Courses</Link></a></li>
                         <li><a className='font-bold'><Link to='/blog'>Blog</Link></a></li>
                         <li><a className='font-bold'><Link to='/faq'>FAQ</Link></a></li>
-                        <ReactSwitch
-                            className="me-4 ms-4"
-                            onChange={toggleTheme}
-                            checked={theme === "dark"}
-                        />
                         <li><a className='font-bold'><Link to='/login'>Login</Link></a></li>
                         <li><a className='font-bold'><Link to='/register'>Sign up</Link></a></li>
                         {
@@ -46,7 +41,11 @@ const Header = () => {
                                     <Link to='/register'>Register</Link>
                                 </>
                         }
-
+                        <Switch
+                            className="me-4 ms-4"
+                            onChange={toggleTheme}
+                            checked={theme === "dark"}
+                            defaultChecked size="small" />
                         {user?.photoURL ?
                             <img style={{ height: '30px' }} src={user?.photoURL} alt="" className="rounded-xl mt-3 mr-4 ml-3" />
 
@@ -63,11 +62,7 @@ const Header = () => {
                     <li><a className='font-bold'><Link to='/home'>Courses</Link></a></li>
                     <li><a className='font-bold'><Link to='/blog'>Blog</Link></a></li>
                     <li><a className='font-bold'><Link to='/faq'>FAQ</Link></a></li>
-                    <ReactSwitch
-                        className="me-4 ms-4"
-                        onChange={toggleTheme}
-                        checked={theme === "dark"}
-                    />
+
                     <>
                         {
                             user?.uid ?
@@ -83,11 +78,16 @@ const Header = () => {
                                     <Link to='/register' className='mr-3 ml-3 mt-2'>Register</Link>
                                 </>
 
+
                         }
 
 
                     </>
-
+                    <Switch
+                        className="me-4 mt-2 font-thin ms-4"
+                        onChange={toggleTheme}
+                        checked={theme === "dark"}
+                        defaultChecked size="small" />
                     {user?.photoURL ?
                         <img style={{ height: '30px' }} src={user?.photoURL} alt="" className="rounded-xl mt-3 mr-4 ml-3" />
 
