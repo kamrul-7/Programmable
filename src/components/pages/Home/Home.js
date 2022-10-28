@@ -6,7 +6,7 @@ const Home = () => {
     const courses = useLoaderData();
     return (
         <div>
-            <h2 className='font-bold text-2xl mt-3 lg:text-center'>Total Course {courses.length}</h2>
+            <h2 className='font-bold text-2xl mt-3 text-center'>Total Course {courses.length}</h2>
             <div className='grid lg:grid-cols-2 gap-4 lg:gap-12 lg:m-12'>
 
                 {

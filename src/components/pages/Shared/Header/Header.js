@@ -1,12 +1,14 @@
 import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { FaUser } from 'react-icons/fa';
+import { FaUser, FaSignOutAlt } from 'react-icons/fa';
 import Switch from "react-switch";
 import { AuthContext } from '../../../context/AuthProvider';
 import { ThemeContext } from '../../../../App';
 import { toast } from 'react-toastify';
+import { useState } from 'react';
 const Header = () => {
+    const [hover, setHover] = useState(false);
     const { theme, toggleTheme } = useContext(ThemeContext);
     const { user, logOut } = useContext(AuthContext);
     const handleLogOut = () => {
@@ -14,6 +16,12 @@ const Header = () => {
         toast.success('LogOut Successful')
             .then(() => { })
             .catch(error => console.error(error))
+    }
+    const handleMouseEnter = () => {
+        setHover(true);
+    }
+    const handleMouseLeave = () => {
+        setHover(false);
     }
 
     return (
@@ -27,13 +35,12 @@ const Header = () => {
                         <li><a className='font-bold'><Link to='/home'>Courses</Link></a></li>
                         <li><a className='font-bold'><Link to='/blog'>Blog</Link></a></li>
                         <li><a className='font-bold'><Link to='/faq'>FAQ</Link></a></li>
-                        <li><a className='font-bold'><Link to='/login'>Login</Link></a></li>
-                        <li><a className='font-bold'><Link to='/register'>Sign up</Link></a></li>
+
                         {
                             user?.uid ?
                                 <>
-                                    <span>{user?.displayName}</span>
-                                    <button onClick={handleLogOut} className="btn btn-xs mr-2 ml-3">Log Out</button>
+                                    <span className={hover ? '' : 'hidden'}>{user?.displayName}</span>
+                                    <button onClick={handleLogOut} className="ml-4"><FaSignOutAlt></FaSignOutAlt></button>
                                 </>
                                 :
                                 <>
@@ -41,20 +48,28 @@ const Header = () => {
                                     <Link to='/register'>Register</Link>
                                 </>
                         }
+
+                        {user?.photoURL ?
+                            <img
+
+                                onMouseEnter={handleMouseEnter}
+                                onMouseLeave={handleMouseLeave}
+
+
+                                style={{ height: '30px', width: '30px' }} src={user?.photoURL} alt="" className="rounded-xl mt-3 mr-4 ml-3 mb-3"
+
+                            />
+
+                            : <FaUser className='mt-3 mr-8 ml-3'></FaUser>
+                        }
                         <Switch
                             className="me-4 ms-4"
                             onChange={toggleTheme}
                             checked={theme === "dark"}
                             defaultChecked size="small" />
-                        {user?.photoURL ?
-                            <img style={{ height: '30px' }} src={user?.photoURL} alt="" className="rounded-xl mt-3 mr-4 ml-3" />
-
-                            : <FaUser className='mt-3 mr-8 ml-3'></FaUser>
-                        }
-
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl md:text-2xl lg:text-3xl text-sky-700 font-bold lg:font-extrabold"><Link to='/'>Programmable</Link></a>
+                <a className="btn btn-ghost normal-case text-xl md:text-2xl lg:text-3xl text-sky-700 font-bold lg:font-extrabold mr-8"><Link to='/'>Programmable</Link></a>
                 <img width={100} src="https://www.thecumbrialep.co.uk/resources/uploads/pages/skills/Skills_For_Life_Logo_Green_RGB.png" alt="" />
             </div>
             <div className="navbar-end hidden lg:flex">
@@ -68,7 +83,7 @@ const Header = () => {
                             user?.uid ?
                                 <>
                                     <div className='d-flex justify-around'>
-                                        <span>{user?.displayName}</span>
+                                        <span className={hover ? '' : 'hidden'}>{user?.displayName}</span>
                                         <button onClick={handleLogOut} className="btn btn-xs mr-2 ml-4 mt-3">Log Out</button>
                                     </div>
                                 </>
@@ -79,18 +94,32 @@ const Header = () => {
                                 </>
                         }
                     </>
+
+                    {user?.photoURL ?
+
+
+                        <img
+
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+
+
+                            style={{ height: '30px' }} src={user?.photoURL} alt="" className="rounded-xl mt-3 mr-4 ml-3"
+
+
+
+                        />
+
+                        :
+                        <FaUser className='mt-3 mr-8 ml-3'></FaUser>
+
+
+                    }
                     <Switch
                         className="me-4 mt-2 font-thin ms-4"
                         onChange={toggleTheme}
                         checked={theme === "dark"}
                         defaultChecked size="small" />
-                    {user?.photoURL ?
-                        <img style={{ height: '30px' }} src={user?.photoURL} alt="" className="rounded-xl mt-3 mr-4 ml-3" />
-
-                        :
-                        <FaUser className='mt-3 mr-8 ml-3'></FaUser>
-                    }
-
                 </ul>
             </div>
 

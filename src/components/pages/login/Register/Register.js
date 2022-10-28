@@ -51,7 +51,7 @@ const Register = () => {
             .catch(error => console.error(error));
     }
     return (
-        <div className="login-container m-12 lg:mx-64 shadow-2xl bg-pink-100">
+        <div className="login-container m-6 lg:mx-64 shadow-2xl bg-pink-100">
             <div className="login-title">Sign up <SiGnuprivacyguard /></div>
             <form onSubmit={handleSubmit} className="login-form">
                 <input name='name' type="text" placeholder="Your name" />

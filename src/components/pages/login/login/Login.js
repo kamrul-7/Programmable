@@ -74,7 +74,7 @@ const Login = () => {
             .catch(error => console.error(error));
     }
     return (
-        <div className="login-container m-12 lg:mx-64 shadow-2xl bg-pink-100">
+        <div className="login-container m-6 lg:mx-64 shadow-2xl bg-pink-100">
             <div className="login-title">
                 Login
                 <BiLogInCircle />
@@ -86,9 +86,6 @@ const Login = () => {
                 <div className="text-red-700 ">
                     {error}
                 </div>
-                <p className="mb-4 mt-2">
-                    Forget password?
-                </p>
                 <p>
                     Don't have an account? <Link to="/register" className="text-blue-700">Sign up first</Link>
                 </p>

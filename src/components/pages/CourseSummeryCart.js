@@ -16,7 +16,7 @@ const CourseSummeryCart = ({ course }) => {
             <div className="card-body text-start">
                 <div className='flex'>
 
-                    <FaStar className='text-yellow-400 mr-3 lg:mr-6 mt-1' />
+                    <FaStar className='text-yellow-400 lg:mr-2 mt-1' />
                     <p>{rating.number}</p>
                     <div className='lg:ml-56 flex '> <FaEye className='mt-1 mr-4' />
                         <p >{total_view}</p>

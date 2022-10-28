@@ -20,7 +20,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/home',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/course')
+                loader: () => fetch('https://programmable-server.vercel.app/course')
             },
             {
                 path: '/',
@@ -49,12 +49,12 @@ export const routes = createBrowserRouter([
             {
                 path: "/category/:id",
                 element: <Category></Category>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://programmable-server.vercel.app/category/${params.id}`)
             },
             {
                 path: "/course/:id",
                 element: <PrivateRoute> <Course></Course></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({ params }) => fetch(`https://programmable-server.vercel.app/course/${params.id}`)
             }
 
         ]
